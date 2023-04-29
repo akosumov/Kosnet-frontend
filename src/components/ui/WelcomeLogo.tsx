@@ -13,7 +13,7 @@ const WelcomeLogo: FC<logoProps> = logoProps => {
 			<div className='flex flex-col gap-2'>
 				<h1 className='font-black text-white text-6xl'>KOSNET</h1>
 				<div className='bg-white' style={{ padding: '3px' }}>
-					<p className='font-bold text-base'>TELL EVERYONE YOUR THOUGHTS</p>
+					<p className='font-bold text-base'>TELL EVERYONE YOUR THOUGHTS.</p>
 				</div>
 			</div>
 		</div>
