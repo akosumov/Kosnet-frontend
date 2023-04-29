@@ -18,6 +18,15 @@ const LoginForm: FC = () => {
 	} = useForm<FormValues>()
 
 	const { isAuth, setIsAuth } = useContext(authContext)
+	const [users, setUsers] = useState<any>([])
+	const getUsers = async () => {
+		const users = await getAllUser()
+		setUsers(users)
+	}
+
+	useEffect(() => {
+		getUsers()
+	}, [])
 
 	const onSubmit: SubmitHandler<FormValues> = data => {
 		if (users) {
@@ -47,16 +56,6 @@ const LoginForm: FC = () => {
 			}
 		}
 	}
-
-	const [users, setUsers] = useState<any>([])
-	const getUsers = async () => {
-		const users = await getAllUser()
-		setUsers(users)
-	}
-
-	useEffect(() => {
-		getUsers()
-	}, [])
 
 	return (
 		<form className='flex flex-col relative' onSubmit={handleSubmit(onSubmit)}>
