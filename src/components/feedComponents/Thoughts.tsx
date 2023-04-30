@@ -15,13 +15,10 @@ const Thoughts: FC<IAllThought> = ({ allThoughts, setAllThoughts }) => {
 	const [isLoading, setIsLoading] = useState(true)
 	const [isPostExist, setIsPostExist] = useState<boolean>()
 
-	useEffect(() => {
-		ThoughtsId(userId)
-		setIsLoading(false)
-	}, [setAllThoughts])
-
 	const ThoughtsId = async (userId: string) => {
 		const user = await findUserById(userId)
+		console.log(user)
+
 		if (user !== undefined) {
 			const thoughts = user.thoughts
 			if (!thoughts.length) {
@@ -42,7 +39,10 @@ const Thoughts: FC<IAllThought> = ({ allThoughts, setAllThoughts }) => {
 		setCooldownButton(false)
 	}
 
-	console.log(isPostExist)
+	useEffect(() => {
+		ThoughtsId(userId)
+		setIsLoading(false)
+	}, [setAllThoughts])
 
 	return (
 		<>

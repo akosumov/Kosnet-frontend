@@ -3,7 +3,7 @@ import { $api } from './axiosSettings'
 
 export const registerApi = ({ email, password, username }: IRegister) => {
 	$api
-		.post('/users/', {
+		.post('/api/users/', {
 			email,
 			password,
 			username,
@@ -22,7 +22,7 @@ export const createThoughts = async ({
 	userId,
 }: ICreateThoughts) => {
 	try {
-		const { data } = await $api.post('/thoughts/', {
+		const { data } = await $api.post('/api/thoughts/', {
 			thoughtText,
 			username,
 			userId,
@@ -35,7 +35,7 @@ export const createThoughts = async ({
 
 export const getThought = async (_id: string) => {
 	try {
-		const { data } = await $api.get(`/thoughts/${_id}`)
+		const { data } = await $api.get(`/api/thoughts/${_id}`)
 		return data
 	} catch (error) {
 		console.log(error)
@@ -44,7 +44,7 @@ export const getThought = async (_id: string) => {
 
 export const findUserById = async (_id: string) => {
 	try {
-		const { data } = await $api.get(`/users/${_id}`)
+		const { data } = await $api.get(`/api/users/${_id}`)
 		return data
 	} catch (error) {
 		console.log(error)
@@ -53,7 +53,7 @@ export const findUserById = async (_id: string) => {
 
 export const getAllUser = async () => {
 	try {
-		const { data } = await $api.get(`/users`)
+		const { data } = await $api.get(`/api/users`)
 		console.log('Data successfully')
 		return data
 	} catch (error) {
@@ -63,7 +63,7 @@ export const getAllUser = async () => {
 
 export const deleteThought = async (thoughtsId: string) => {
 	try {
-		await $api.delete(`/thoughts/${thoughtsId}`)
+		await $api.delete(`/api/thoughts/${thoughtsId}`)
 		console.log('Thought delete')
 	} catch (error) {
 		console.log(error)
@@ -72,7 +72,7 @@ export const deleteThought = async (thoughtsId: string) => {
 
 export const addFriendById = async (userId: string, friendId: string) => {
 	try {
-		await $api.post(`/users/${userId}/friends/${friendId}`)
+		await $api.post(`/api/users/${userId}/friends/${friendId}`)
 		console.log('You added a person as a friend')
 	} catch (error) {
 		console.log(error)
@@ -81,7 +81,7 @@ export const addFriendById = async (userId: string, friendId: string) => {
 
 export const deleteFriendById = async (userId: string, friendId: string) => {
 	try {
-		await $api.delete(`/users/${userId}/friends/${friendId}`)
+		await $api.delete(`/api/users/${userId}/friends/${friendId}`)
 		console.log('Your friend has been deleted ')
 	} catch (error) {
 		console.log(error)
@@ -92,7 +92,7 @@ export const updateEmail = async (userId: string, data: any) => {
 	const userName = JSON.parse(localStorage.getItem('user') as any).username
 	const password = JSON.parse(localStorage.getItem('user') as any).password
 	try {
-		await $api.put(`/users/${userId}`, {
+		await $api.put(`/api/users/${userId}`, {
 			email: data,
 		})
 		localStorage.setItem('user', '')
@@ -115,7 +115,7 @@ export const updateUsername = async (userId: string, data: any) => {
 	const email = JSON.parse(localStorage.getItem('user') as any).email
 	const password = JSON.parse(localStorage.getItem('user') as any).password
 	try {
-		await $api.put(`/users/${userId}`, {
+		await $api.put(`/api/users/${userId}`, {
 			username: data,
 		})
 		localStorage.setItem('user', '')
@@ -136,7 +136,7 @@ export const updateUsername = async (userId: string, data: any) => {
 
 export const deleteUser = async (userId: string) => {
 	try {
-		await $api.delete(`/users/${userId}`)
+		await $api.delete(`/api/users/${userId}`)
 		localStorage.clear()
 		console.log('you have successfully deleted the account')
 	} catch (error) {

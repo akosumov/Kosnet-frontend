@@ -23,12 +23,8 @@ const LoginForm: FC = () => {
 		const users = await getAllUser()
 		setUsers(users)
 	}
-
-	useEffect(() => {
-		getUsers()
-	}, [])
-
 	const onSubmit: SubmitHandler<FormValues> = data => {
+		console.log(users, '<--- все юзеры')
 		if (users) {
 			let isLogged
 			users.forEach((item: any) => {
@@ -57,6 +53,9 @@ const LoginForm: FC = () => {
 		}
 	}
 
+	useEffect(() => {
+		getUsers()
+	}, [])
 	return (
 		<form className='flex flex-col relative' onSubmit={handleSubmit(onSubmit)}>
 			<input
