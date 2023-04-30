@@ -11,7 +11,7 @@ const AuthScreen: FC = () => {
 			<div className='flex pt-36 flex-col' style={{ margin: '0 auto' }}>
 				<WelcomeLogo />
 				<div className='text-white text-2xl pt-14 ml-3'>
-					Welcome, login to your account!
+					Welcome, login to your account
 				</div>
 				<LoginForm />
 				<div className='text-white text-center pt-8'>
