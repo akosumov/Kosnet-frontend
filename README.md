@@ -18,6 +18,7 @@ Main features:
 Core Technology:
 - React
 - TypeSrcipt
+- Tailwind
 - Redux Toolkit
 - react-router-dom
 - react hooks form
