@@ -1,5 +1,5 @@
-<h1>Project: <a href="https://kosnet-frontend.vercel.app/">Kosnet</a></h1>
-
+<h1>Project:Kosnet</h1>
+<h2>Project: <a href="https://kosnet-frontend.vercel.app/">Ссылка на проект</a></h1>
 ---
 
 Project description: Kosnet is a SPA application. It can be called a mini Twitter app because it contains a lot of features from a real social network. 
